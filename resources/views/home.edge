@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ruralcast</title>
+        <meta name="author" content="Guilherme Moreira">
+        <meta name="description" content="">
+
+        <!-- Tailwind -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+        <link rel="icon" href="https://scontent.fgig4-1.fna.fbcdn.net/v/t39.30808-1/309677280_469287621904691_7608616614908532040_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=c6021c&_nc_ohc=5cNtzIpqSzQAX-rlQ1Y&_nc_ht=scontent.fgig4-1.fna&oh=00_AfCjDg1WnT-rQj1_C536xeRuzmsaylQsXS9yYH7I496sdg&oe=63A46FB3">
+
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Karla:400,700&display=swap');
+
+            .font-family-karla {
+                font-family: karla;
+            }
+        </style>
+
+        <!-- AlpineJS -->
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <!-- Font Awesome -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" integrity="sha256-KzZiKy0DWYsnwMF+X1DvQngQ2/FxF7MF3Ff72XcpuPs=" crossorigin="anonymous"></script>
+    </head>
+
+    <body class="bg-white font-family-karla">
+
+        <!-- Top Bar Nav -->
+        <nav class="w-full py-4 bg-blue-800 shadow">
+            <div class="w-full container mx-auto flex flex-wrap items-center justify-between">
+
+                <nav>
+                    <ul class="flex items-center justify-between font-bold text-sm text-white uppercase no-underline">
+                        <li><a href="{{ route('home') }}"><img src ="https://scontent.fgig4-1.fna.fbcdn.net/v/t39.30808-1/309677280_469287621904691_7608616614908532040_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=c6021c&_nc_ohc=5cNtzIpqSzQAX-rlQ1Y&_nc_ht=scontent.fgig4-1.fna&oh=00_AfCjDg1WnT-rQj1_C536xeRuzmsaylQsXS9yYH7I496sdg&oe=63A46FB3"
+                        style="object-fit:fill;
+                               width:75 px;
+                               height:70px;"
+                        alt="Logo Rural"></a></li>
+                        <li><a class="hover:text-gray-200 hover:underline px-8" href="{{ route('home') }}">Ruralcast</a></li>
+                    </ul>
+                </nav>
+
+                <div class="flex items-center text-lg no-underline text-white pr">
+                  @if(!auth.isLoggedIn)
+                    <a class="hover:text-gray-200 hover:underline px-4" href="{{ route('cadastrar.index') }}">
+                        Cadastrar
+                    </a>
+                    <a class="hover:text-gray-200 hover:underline px-4" href="{{ route('auth.create') }}">
+                        Login
+                    </a>
+                  @else
+
+                    <ul class="flex items-center justify-between">
+                        <li class="pr-6">
+                            <a class="inline-block no-underline hover:text-black" href="{{ route('profile.show') }}">
+                              <svg class="fill-current hover:text-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                  <circle fill="none" cx="12" cy="7" r="3" />
+                                  <path d="M12 2C9.243 2 7 4.243 7 7s2.243 5 5 5 5-2.243 5-5S14.757 2 12 2zM12 10c-1.654 0-3-1.346-3-3s1.346-3 3-3 3 1.346 3 3S13.654 10 12 10zM21 21v-1c0-3.859-3.141-7-7-7h-4c-3.86 0-7 3.141-7 7v1h2v-1c0-2.757 2.243-5 5-5h4c2.757 0 5 2.243 5 5v1H21z" />
+                              </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="pl-3 inline-block no-underline hover:text-black" href="{{ route('auth.destroy') }}">
+                              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                              </svg>
+                            </a>
+                        </li>
+                    </ul>
+                  @endif
+                </div>
+            </div>
+        </nav>
+
+        <div class="px-10 py-5">
+            <h1 class ="text-3xl">Assista a vídeos publicados por outros usuários e publique seus próprios vídeos!</h1>
+            <h2 class ="text-2xl px-10 pt-4">Faça o login e comece a explorar!</h2>
+            <p class ="text-2xl px-10">Caso não tenha login, faça já o seu cadastro!</p>
+        </div>
+
+        <footer class="container mx-auto bg-white py-8 border-t border-gray-400">
+            <div class="container flex px-3 py-8 ">
+                <div class="w-full mx-auto flex flex-wrap">
+                    <div class="flex w-full lg:w-1/2 ">
+                        <div class="px-3 md:px-0">
+                            <h3 class="font-bold text-gray-900">
+                            Sobre
+                            </h3>
+                            <p class="py-4">
+                            © 2022 Ruralvisa
+                            </p>
+                        </div>
+                    </div>
+                    <div class="flex w-full lg:w-1/2 lg:justify-end lg:text-right">
+                        <div class="px-3 md:px-0">
+                            <h3 class="font-bold text-gray-900">
+                                Links
+                            </h3>
+                            <ul class="list-reset items-center pt-3">
+                                <li>
+                                    <a class="inline-block no-underline hover:text-black hover:underline py-1" href="http://www.dcc.ufrrj.br">DCC/UFRRJ</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </body>
+</html>

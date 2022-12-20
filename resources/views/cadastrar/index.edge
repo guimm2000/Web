@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <content>{{flashMessages.values}}</content>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Ruralcast</title>
+      <meta name="author" content="David Grzyb">
+        <meta name="description" content="">
+
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="icon" href="https://scontent.fgig4-1.fna.fbcdn.net/v/t39.30808-1/309677280_469287621904691_7608616614908532040_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=c6021c&_nc_ohc=5cNtzIpqSzQAX-rlQ1Y&_nc_ht=scontent.fgig4-1.fna&oh=00_AfCjDg1WnT-rQj1_C536xeRuzmsaylQsXS9yYH7I496sdg&oe=63A46FB3">
+
+        <style>
+            .body-bg {
+                background-color: rgb(30 64 175);
+            }
+        </style>
+    </head>
+
+    <body class="body-bg min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
+        <header class="max-w-lg mx-auto">
+            <a href="#">
+                <h1 class="text-4xl font-bold text-white text-center">Faça o cadastro para utilizar o site</h1>
+            </a>
+        </header>
+
+        <main class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
+            <div class='absolute left-5 top-5'>
+                <a class="text-white text-2xl hover:text-gray-200 hover:underline px-4" href="{{ route('home') }}">Voltar</a>
+            </div>
+            <section>
+                <h3 class="font-bold text-2xl">Bem-vindo ao Ruralcast</h3>
+                <p class="text-gray-600 pt-2">Faça seu cadastro.</p>
+            </section>
+
+            <section class="mt-10">
+                <form class="flex flex-col" action="{{ route('cadastrar.store') }}" method="POST">
+                    <div class="mb-6 pt-3 rounded bg-gray-200">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="email">Email</label>
+                        <input type="email" name="email" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 pb-3">
+                    </div>
+                    <div class="mb-6 pt-3 rounded bg-gray-200">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="password">Password</label>
+                        <input type="password" name="password" id="password" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 pb-3">
+                    </div>
+                    <div class="mb-6 pt-3 rounded bg-gray-200">
+                        <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="password_confirmation">Confirmar Password</label>
+                        <input type="password" name="password_confirmation" id="password_confirmation" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 pb-3">
+                    </div>
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200" type="submit">Cadastrar</button>
+                </form>
+                @if(flashMessages.values)
+                    <p class="text-xs text-red-500 mt-3">Erro: Senhas diferentes</p>
+                @endif
+            </section>
+        </main>
+
+        <footer class="max-w-lg mx-auto flex justify-center text-white">
+            <a href="#" class="hover:underline">Contact</a>
+            <span class="mx-3">•</span>
+            <a href="#" class="hover:underline">Privacy</a>
+        </footer>
+    </body>
+</html>
