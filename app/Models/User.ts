@@ -15,6 +15,12 @@ export default class User extends BaseModel {
   @column()
   public rememberMeToken: string | null
 
+  @column()
+  public nome: string | null
+
+  @column()
+  public twitter: string | null
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 

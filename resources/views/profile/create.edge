@@ -1,0 +1,27 @@
+@layout('layouts/main')
+
+@section('body')
+	<div class="container text-5xl font-bold justify-center align-center">
+		<h1 class="text-5xl pt-10 font-bold text-blue-800 text-center ">Editar Pefil</h1>
+	</div>
+
+	<div class="flex container justify-center align-center">
+
+			<section class="mt-10 bg-white max-w-lg pl-24 pt-10 pb-10 pr-24 rounded-lg shadow-2xl">
+	                <div class="container mb-6 pt-3 rounded bg-gray-200 justify-center align-center content-center">
+	                    <label class="block text-gray-700 text-sm font-bold ml-3" for="email">Nome</label>
+	                    <input name="nome" class="mb-6 pt-3 rounded bg-gray-200 pl-2 focus:outline-none block text-gray-700 text-sm">
+	                </div>
+
+	                <div class="mb-6 pt-3 rounded bg-gray-200">
+	                    <label class="block text-gray-700 text-sm font-bold ml-3" for="email">Twitter</label>
+	                    <input name="twitter" class="mb-6 pt-3 rounded bg-gray-200 pl-2 focus:outline-none block text-gray-700 text-sm">
+	                </div>
+
+	                <a href="{{ route('profile.create') }}">
+	                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 align-center text-center justify-center rounded shadow-lg hover:shadow-xl transition duration-200">Editar Perfil</button>
+	                </a>
+	        </section>
+
+	</div>
+@endsection

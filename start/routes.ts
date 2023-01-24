@@ -31,3 +31,10 @@ Route.get('/cadastrar', "CadastrosController.index").as('cadastrar.index');
 Route.post('/cadastrar', "CadastrosController.store").as('cadastrar.store');
 
 Route.get('/profile', "ProfilesController.show").as('profile.show').middleware(['auth']);
+Route.get('/profile/editar', "ProfilesController.create").as('profile.create').middleware(['auth']);
+//Route.post('/profile/editar', "ProfilesController.store").as('profile.store').middleware(['auth']);
+
+Route.get('/videos', "VideosController.index").as('videos.index').middleware(['auth']);
+Route.get('/videos/submeter', "VideosController.create").as('videos.create').middleware(['auth']);
+Route.post('/videos/submeter', "VideosController.store").as('videos.store').middleware(['auth']);
+Route.get('/videos/:id', "VideosController.show").as("videos.show").middleware(['auth']);

@@ -1,33 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Ruralcast</title>
-      <meta name="author" content="David Grzyb">
-        <meta name="description" content="">
+@layout('layouts/partials/tailwind')
 
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
-        <link rel="icon" href="https://scontent.fgig4-1.fna.fbcdn.net/v/t39.30808-1/309677280_469287621904691_7608616614908532040_n.jpg?stp=dst-jpg_p200x200&_nc_cat=105&ccb=1-7&_nc_sid=c6021c&_nc_ohc=5cNtzIpqSzQAX-rlQ1Y&_nc_ht=scontent.fgig4-1.fna&oh=00_AfCjDg1WnT-rQj1_C536xeRuzmsaylQsXS9yYH7I496sdg&oe=63A46FB3">
-
-        <style>
-            .body-bg {
-                background-color: rgb(30 64 175);
-            }
-        </style>
-    </head>
-
-    <body class="body-bg min-h-screen pt-12 md:pt-20 pb-6 px-2 md:px-0" style="font-family:'Lato',sans-serif;">
-        <header class="max-w-lg mx-auto">
-                <h1 class="text-4xl font-bold text-white text-center">Faça o login para utilizar o site</h1>
-        </header>
-
-        <main class="bg-white max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
-            <div class='absolute left-5 top-5'>
-                <a class="text-white text-2xl hover:text-gray-200 hover:underline px-4" href="{{ route('home') }}">Voltar</a>
-            </div>
+    @section('body')
             <section>
                 <h3 class="font-bold text-2xl">Bem-vindo ao Ruralcast</h3>
                 <p class="text-gray-600 pt-2">Faça login na sua conta.</p>
@@ -51,16 +24,8 @@
                     <p class="text-xs text-red-500 mt-3">Credenciais não válidas.</p>
                 @endif
             </section>
-        </main>
+    @endsection
 
-        <div class="max-w-lg mx-auto text-center mt-12 mb-6">
-            <p class="text-white">Não possui conta? <a href="{{ route('cadastrar.index') }}" class="font-bold hover:underline">Faça o cadastro</a>.</p>
-        </div>
-
-        <footer class="max-w-lg mx-auto flex justify-center text-white">
-            <a href="#" class="hover:underline">Contact</a>
-            <span class="mx-3">•</span>
-            <a href="#" class="hover:underline">Privacy</a>
-        </footer>
-    </body>
-</html>
+    @section('cadastrar')
+        <p class="text-white">Não possui conta? <a href="{{ route('cadastrar.index') }}" class="font-bold hover:underline">Faça o cadastro</a>.</p>
+    @endsection

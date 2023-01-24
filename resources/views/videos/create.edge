@@ -1,0 +1,27 @@
+@layout('layouts/main')
+
+@section('body')
+	<div>
+		<h1 class="text-4xl pt-10 font-bold text-blue-800 pl-10">Criando Video</h1>
+
+		<form action="{{ route('videos.store') }}" method="POST">
+			<section class="mt-10 bg-white max-w-lg p-8 md:p-12 my-10 rounded-lg shadow-2xl">
+				<label class="block text-gray-700 text-sm text-2xl font-bold mb-2 ml-3" for="titulo">Titulo</label>
+				<input name="titulo" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-10 py-1 pl-4 pr-2">
+				<label class="block text-gray-700 text-sm text-2xl font-bold mt-4 mb-2 ml-3" for="descricao">Descrição</label>
+				<textarea name="descricao" class="bg-gray-200 rounded text-gray-700 text-sm focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 pl-2 pr-2" rows="5" cols="47"></textarea>
+				<label class="block text-gray-700 text-sm text-2xl font-bold mt-4 mb-2 ml-3" for="url">URL do youtube</label>
+				<input name="url" class="bg-gray-200 rounded w-full text-gray-700 focus:outline-none border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-10 py-1 pl-4 pr-2">
+				<button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 rounded shadow-lg hover:shadow-xl transition duration-200 mt-8" type="submit">Submeter</button>
+
+				@if(flashMessages.has('errors.url'))
+					<div class="text-red-600 mt-4">
+						O campo URL deve conter uma URL do youtube!
+					</div>
+				@endif
+
+			</section>	
+		</form>
+	</div>
+
+@endsection
