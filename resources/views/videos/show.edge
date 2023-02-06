@@ -1,16 +1,21 @@
 @layout('layouts/main')
 
 @section('body')
-	<div class="container mx-auto justify-center flex items-center md:items-start flex-wrap pt-4 pb-12 px-6">
-		<iframe class= "mt-6" width="1280" height="720" src= {{ video.url }} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-	</div>
+		<div class="container mx-auto justify-center flex items-center md:items-start flex-wrap pt-4 pb-12 px-6">
+			<iframe class= "mt-6" width="1280" height="720" src= {{ video.url }} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+		</div>
 
-	<div class="container mx-auto justify-center flex items-center font-bold text-5xl mb-12">
-		{{video.titulo}}
-	</div>
+		<div class="container mx-auto justify-center flex items-center font-bold text-5xl mb-12">
+			{{video.titulo}}
+		</div>
 
-	<div class="justify-center flex items-center mb-10 ml-24 mr-24">
-		{{video.descricao}}
-	</div>
+		<div class="justify-center flex items-center mb-10 ml-24 mr-24">
+			{{video.descricao}}
+		</div>
+
+		<div class="container ml-24 font-bold text-2xl">
+			<p>Postado por: {{ auth.user.nome }}</p>
+		</div>
+
 
 @endsection

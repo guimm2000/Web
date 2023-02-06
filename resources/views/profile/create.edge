@@ -6,7 +6,7 @@
 	</div>
 
 	<div class="flex container justify-center align-center">
-
+		<form action="{{ route('profile.store') }}" method="POST">
 			<section class="mt-10 bg-white max-w-lg pl-24 pt-10 pb-10 pr-24 rounded-lg shadow-2xl">
 	                <div class="container mb-6 pt-3 rounded bg-gray-200 justify-center align-center content-center">
 	                    <label class="block text-gray-700 text-sm font-bold ml-3" for="email">Nome</label>
@@ -22,6 +22,6 @@
 	                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 align-center text-center justify-center rounded shadow-lg hover:shadow-xl transition duration-200">Editar Perfil</button>
 	                </a>
 	        </section>
-
+	    </form>
 	</div>
 @endsection

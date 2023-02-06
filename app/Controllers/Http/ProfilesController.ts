@@ -9,4 +9,15 @@ export default class ProfilesController {
 	public async create({view, session}: HttpContextContract) {
 		return view.render('profile/create')
 	}
+
+	public async store({auth, session, request, response}: HttpContextContract) {
+		const {nome, twitter} = request.all()
+
+		auth.user.nome = nome
+		auth.user.twitter = twitter
+
+		await auth.user.save()
+
+		return response.redirect().toRoute('profile.show')
+	}
 }

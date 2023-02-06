@@ -6,18 +6,17 @@
 
         <section class="mt-10 bg-white max-w-lg pl-24 pt-10 pb-10 pr-24 rounded-lg shadow-2xl">
                 <div class="mb-6 pt-3 rounded bg-gray-200">
-                    <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="email">Nome</label>
-                    <div id="nome" class="mb-2"></div>
-
+                    <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="nome">Nome</label>
+                    <div id="nome-id"></div>
                     <script>
-                        
-                    var nome = document.getElementById('nome')
+                    
+                        const nome = document.getElementById("nome-id");
+                        nome.innerHTML = '<p class="bg-gray-200 rounded w-full text-gray-700 px-3">{{ auth.user.nome }}</p>'
                         if({{ auth.user.nome }} == null) {
-                            nome.innerHTML = '<label id="nome" class="bg-gray-200 rounded w-full text-gray-700 px-3"></label>'
-                        }
-                        else nome.innerHTML = '<label id="nome" class="bg-gray-200 rounded w-full text-gray-700 px-3">{{ auth.user.nome }}</label>'
-
-                    </script>
+                            nome.innerHTML = '<label class="bg-gray-200 rounded w-full text-gray-700 px-3"></label>'
+                        } 
+                        
+                    </script> 
                 </div>
 
                 <div class="mb-6 pt-3 rounded bg-gray-200">
@@ -26,18 +25,17 @@
                 </div>
 
                 <div class="mb-6 pt-3 rounded bg-gray-200">
-                    <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="email">Twitter</label>
-                    <div id="twitter" class="mb-2"></div>
-
+                    <label class="block text-gray-700 text-sm font-bold mb-2 ml-3" for="twitter">Twitter</label>
+                    <div id="twitter-id"></div>
                     <script>
+                    
+                        const twitter = document.getElementById("twitter-id");
+                        twitter.innerHTML = '<p class="bg-gray-200 rounded w-full text-gray-700 px-3">{{ auth.user.twitter }}</p>'
+                        if({{ auth.user.twitter }} == null) {
+                            twitter.innerHTML = '<label class="bg-gray-200 rounded w-full text-gray-700 px-3"></label>'
+                        } 
                         
-                    var twitter = document.getElementById('twitter')
-                        if({{auth.user.twitter}} == null) {
-                            twitter.innerHTML = '<label id="nome" class="bg-gray-200 rounded w-full text-gray-700 px-3"></label>'
-                        }
-                        else twitter.innerHTML = '<label id="nome" class="bg-gray-200 rounded w-full text-gray-700 px-3">{{ auth.user.twitter }}</label>'
-
-                    </script>
+                    </script> 
                 </div>
 
                 <a href="{{ route('profile.create') }}">
