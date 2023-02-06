@@ -1,8 +1,13 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import { column, beforeSave, BaseModel } from '@ioc:Adonis/Lucid/Orm'
+import Video from 'App/Models/Video'
+import { column, beforeSave, BaseModel, hasMany, HasMany} from '@ioc:Adonis/Lucid/Orm'
 
 export default class User extends BaseModel {
+  @hasMany(() => Video)
+  public videos_postados: HasMany<typeof Video>
+
+
   @column({ isPrimary: true })
   public id: number
 

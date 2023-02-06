@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Video from 'App/Models/Video'
+import User from 'App/Models/User'
 import VideoValidator from 'App/Validators/VideoValidator'
 
 export default class VideosController {
@@ -13,15 +14,17 @@ export default class VideosController {
 		return view.render('videos/create')
 	}
 
-	public async store({ response, request, session }: HttpContextContract) {
+	public async store({ auth, response, request, session }: HttpContextContract) {
 		const payload = await request.validate(VideoValidator)
 
 		var url = payload.url
-		var i = url.indexOf('|');
+		var i = url.indexOf('=');
 		var splits = [url.slice(0,i), url.slice(i+1)];
 		payload.url = "https://www.youtube.com/embed/"+splits[1]
 
-		const video = await Video.create({titulo: payload.titulo, descricao: payload.descricao, url: payload.url})
+		const user = auth.user
+
+		const video = await user.related('videos_postados').create({titulo: payload.titulo, descricao: payload.descricao, url: payload.url})
 
 		return response.redirect().toRoute('videos.index')
 	}

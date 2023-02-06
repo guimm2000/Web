@@ -6,6 +6,7 @@ export default class Videos extends BaseSchema {
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.increments('id')
+      table.integer('user_id').unsigned().references('users.id').onDelete('CASCADE')
       table.string('titulo', 120)
       table.string('descricao')
       table.string('url')
