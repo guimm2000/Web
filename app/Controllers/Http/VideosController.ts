@@ -26,7 +26,7 @@ export default class VideosController {
 
 		const video = await user.related('videos_postados').create({titulo: payload.titulo, descricao: payload.descricao, url: payload.url})
 
-		return response.redirect().toRoute('videos.index')
+		return response.redirect().toRoute('videos.index');
 	}
 
 	public async show({ params, view }: HttpContextContract) {
@@ -36,4 +36,15 @@ export default class VideosController {
 	    return view.render('videos/show', { video: video })
   	}
 
+  	public async vistos({ auth, view, session }: HttpContextContract) {
+
+  		const user = auth.user
+  		const video = await Video.find(2)
+
+  		//wait user.related('videos_vistos').attach([video.id])
+
+  		await user.load('videos_vistos')
+
+		return view.render('videos/seen', {videos: user.videos_vistos})
+	}
 }

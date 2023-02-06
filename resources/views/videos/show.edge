@@ -5,8 +5,41 @@
 			<iframe class= "mt-6" width="1280" height="720" src= {{ video.url }} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 		</div>
 
-		<div class="container mx-auto justify-center flex items-center font-bold text-5xl mb-12">
-			{{video.titulo}}
+		<div class ="container flex">
+
+			<div class="ml-24">
+				<button class="container" id="visto" onclick="toggleEye()">
+                </button>
+
+                <script>
+					var visto = document.getElementById("visto")
+
+					var estado = false
+
+					if(!estado) {
+						visto.innerHTML = '<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">	                    <circle fill="none" cx="12" cy="7" r="3" /><path d="M4 10C4 10 5.6 15 12 15M12 15C18.4 15 20 10 20 10M12 15V18M18 17L16 14.5M6 17L8 14.5" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path> </svg>'
+					}
+
+					else {
+						visto.innerHTML = '<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">	                    <circle fill="none" cx="12" cy="7" r="3" /><path d="M4 12C4 12 5.6 7 12 7M12 7C18.4 7 20 12 20 12M12 7V4M18 5L16 7.5M6 5L8 7.5M15 13C15 14.6569 13.6569 16 12 16C10.3431 16 9 14.6569 9 13C9 11.3431 10.3431 10 12 10C13.6569 10 15 11.3431 15 13Z" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
+					}
+					function toggleEye() {
+						if(estado) {
+							visto.innerHTML = '<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">	                    <circle fill="none" cx="12" cy="7" r="3" /><path d="M4 10C4 10 5.6 15 12 15M12 15C18.4 15 20 10 20 10M12 15V18M18 17L16 14.5M6 17L8 14.5" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path> </svg>'
+							estado = !estado
+						}
+						else {
+							visto.innerHTML = '<svg class="fill-current text-white" xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24">	                    <circle fill="none" cx="12" cy="7" r="3" /><path d="M4 12C4 12 5.6 7 12 7M12 7C18.4 7 20 12 20 12M12 7V4M18 5L16 7.5M6 5L8 7.5M15 13C15 14.6569 13.6569 16 12 16C10.3431 16 9 14.6569 9 13C9 11.3431 10.3431 10 12 10C13.6569 10 15 11.3431 15 13Z" stroke="#464455" stroke-linecap="round" stroke-linejoin="round"></path></svg>'
+							estado = !estado
+						}
+					}
+                </script>
+			</div>
+
+			<div class="container mx-auto justify-center flex items-center font-bold text-5xl mb-12 mr-24">
+				{{video.titulo}}
+			</div>
+
 		</div>
 
 		<div class="justify-center flex items-center mb-10 ml-24 mr-24">

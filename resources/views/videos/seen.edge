@@ -1,20 +1,13 @@
 @layout('layouts/main')
 
 @section('body')
-	
+
 	<div class="flex-col">
-		<h1 class="text-5xl pt-10 font-bold text-blue-800 text-left ">Videos</h1>
 
-		<a href="{{ route('videos.create') }}">
-			<button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 mt-6 rounded shadow-lg hover:shadow-xl transition duration-200 mb-6 pl-2 pr-2" type="submit">Submeter Video</button>
-		</a>
-
-		<a href="{{ route('videos.vistos') }}">
-			<button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 mt-6 rounded shadow-lg hover:shadow-xl transition duration-200 mb-6 pl-2 pr-2 ml-10" >Marcados como visto</button>
-		</a>
+		<h1 class="text-5xl pt-10 font-bold text-blue-800 text-left mb-12">Vídeos Vistos</h1>
 
 		@each(video in videos)
-			<div class="flex mb-2">
+			<div class="flex mb-4">
 				<div><iframe class= "mt-6" width="720" height="480" src= {{ video.url }} title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 				<div class="flex-col ml-10">
 					<div class="mt-6 text-2xl font-bold mb-4">
@@ -26,6 +19,5 @@
 				</div>
 			</div>
 		@end
-
 	</div>
 @endsection

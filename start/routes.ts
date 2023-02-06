@@ -37,4 +37,5 @@ Route.post('/profile/editado', "ProfilesController.store").as('profile.store').m
 Route.get('/videos', "VideosController.index").as('videos.index').middleware(['auth']);
 Route.get('/videos/submeter', "VideosController.create").as('videos.create').middleware(['auth']);
 Route.post('/videos/submeter', "VideosController.store").as('videos.store').middleware(['auth']);
+Route.get('/videos/vistos', "VideosController.vistos").as('videos.vistos');
 Route.get('/videos/:id', "VideosController.show").as("videos.show").middleware(['auth']);
