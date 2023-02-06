@@ -1,7 +1,7 @@
 import { schema, CustomMessages, rules } from '@ioc:Adonis/Core/Validator'
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 
-export default class VideoValidator {
+export default class ProfileValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   /*
@@ -24,12 +24,12 @@ export default class VideoValidator {
    *    ```
    */
   public schema = schema.create({
-    titulo: schema.string({}, [rules.escape()]),
-    descricao: schema.string()
-    url: schema.string({}, [rules.url({allowedHosts: ['youtube.com', 
-                                                        'www.youtube.com',
-                                                        'https://www.youtube.com'
-                                                        'http://youtube.com']})])
+    nome: schema.string({}, [rules.trim(), rules.escape()]),
+    twitter: schema.string({}, [rules.url({allowedHosts: ['twitter.com', 
+                                                        'www.twitter.com',
+                                                        'https://www.twitter.com'
+                                                        'http://twitter.com']})])
+
   })
 
   /**

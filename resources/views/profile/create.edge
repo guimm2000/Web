@@ -21,6 +21,13 @@
 	                <a href="{{ route('profile.create') }}">
 	                    <button class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 align-center text-center justify-center rounded shadow-lg hover:shadow-xl transition duration-200">Editar Perfil</button>
 	                </a>
+
+	                @if(flashMessages.has('errors.twitter'))
+	                    <div class="text-red-600 mt-4">
+	                        O campo URL deve conter uma URL do twitter!
+	                    </div>
+	                @endif
+	                
 	        </section>
 	    </form>
 	</div>

@@ -1,5 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import User from 'App/Models/User'
+import ProfileValidator from 'App/Validators/ProfileValidator'
 
 export default class ProfilesController {
 	public async show({view}: HttpContextContract) {
@@ -11,10 +12,10 @@ export default class ProfilesController {
 	}
 
 	public async store({auth, session, request, response}: HttpContextContract) {
-		const {nome, twitter} = request.all()
+		const payload = await request.validate(ProfileValidator)
 
-		auth.user.nome = nome
-		auth.user.twitter = twitter
+		auth.user.nome = payload.nome
+		auth.user.twitter = payload.twitter
 
 		await auth.user.save()
 
