@@ -27,7 +27,7 @@ export default class ProfileValidator {
     nome: schema.string({}, [rules.trim(), rules.escape()]),
     twitter: schema.string({}, [rules.url({allowedHosts: ['twitter.com', 
                                                         'www.twitter.com',
-                                                        'https://www.twitter.com'
+                                                        'https://www.twitter.com',
                                                         'http://twitter.com']})])
 
   })

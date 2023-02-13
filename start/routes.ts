@@ -39,3 +39,4 @@ Route.get('/videos/submeter', "VideosController.create").as('videos.create').mid
 Route.post('/videos/submeter', "VideosController.store").as('videos.store').middleware(['auth']);
 Route.get('/videos/vistos', "VideosController.vistos").as('videos.vistos');
 Route.get('/videos/:id', "VideosController.show").as("videos.show").middleware(['auth']);
+Route.post('/videos/:id', "VideosController.put").as("videos.put").middleware(['auth']);

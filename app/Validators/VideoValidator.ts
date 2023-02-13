@@ -25,7 +25,7 @@ export default class VideoValidator {
    */
   public schema = schema.create({
     titulo: schema.string({}, [rules.escape()]),
-    descricao: schema.string()
+    descricao: schema.string(),
     url: schema.string({}, [rules.url({allowedHosts: ['youtube.com', 
                                                         'www.youtube.com',
                                                         'https://www.youtube.com',
